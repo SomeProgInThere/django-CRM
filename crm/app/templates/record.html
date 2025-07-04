@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django CRM | Record</title>
+</head>
+
+<body>    
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <h1>Customer Record</h1>
+    <br/>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <h3 class="card-header">Record Details</h3>
+                <div class="card-body">
+        
+                    <h5 class="card-title">Record Id</h5>
+                    <p class="card-text">{{ record.id }}</p>
+        
+                    <h5 class="card-title">Last Updated</h5>
+                    <p class="card-text">{{ record.updatedAt }}</p>
+
+                    <h5 class="card-title">Created</h5>
+                    <p class="card-text">{{ record.createdAt }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <h3 class="card-header">Customer Details</h3>
+                <div class="card-body">
+        
+                    <h5 class="card-title">Full Name</h5>
+                    <p class="card-text">{{ record.username }}</p>
+        
+                    <h5 class="card-title">Email Address</h5>
+                    <p class="card-text">{{ record.email }}</p>
+        
+                    <h5 class="card-title">Phone Number</h5>
+                    <p class="card-text">{{ record.phone }}</p>
+        
+                    <h5 class="card-title">Residential Address</h5>
+                    <p class="card-text">{{ record.address }}</p>
+        
+                    <h5 class="card-title">City</h5>
+                    <p class="card-text">{{ record.city }}</p>
+        
+                    <h5 class="card-title">Zipcode</h5>
+                    <p class="card-text">{{ record.zipcode }}</p>
+        
+                    <h5 class="card-title">State</h5>
+                    <p class="card-text">{{ record.state }}</p>
+                </div>
+            </div>
+            <a href="{% url 'index' %}" class="btn btn-secondary" role="button">Back</a>
+            <a href="{% url 'update' record.id %}" class="btn btn-info" role="button">Update Record</a>
+            <a href="{% url 'delete' record.id %}" class="btn btn-danger" role="button">Delete Record</a>
+        </div>        
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>
